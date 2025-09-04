@@ -2,3 +2,4 @@
 .env*
 *screenshots*
 *reports*
+cypress.env.json
