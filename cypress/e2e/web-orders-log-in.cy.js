@@ -7,14 +7,10 @@ describe('web-order-log-in', () => {
     //     Navigate to the login page.
     cy.visit('http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx')
   })
-  it.only('verify that a user can successfully log in with valid credentials', () => {
-    //cy.fixture("user").then((user) => {
+  it('verify that a user can successfully log in with valid credentials', () => {
     cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
-    //The login error message span remains empty.
-    //logInPage.getStatus().should('be.empty')
     //The user is redirected to Default.aspx.
-    cy.get('#aspnetForm').should('have.attr', 'action', 'Default.aspx');
-    })    
+    cy.get('#aspnetForm').should('have.attr', 'action', 'Default.aspx');   
   })
   it('verify the system handles invalid credentials correctly without crashing and provides appropriate feedback.', () => {
     //Invalid Username
@@ -186,3 +182,4 @@ cy.get('#__VIEWSTATEGENERATOR').should('have.attr', 'name', '__VIEWSTATEGENERATO
 // __EVENTVALIDATION
 cy.get('#__EVENTVALIDATION').should('have.attr', 'name', '__EVENTVALIDATION')
   })
+})

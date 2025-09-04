@@ -1,11 +1,10 @@
 {
   "devDependencies": {
-    "cypress": "^15.1.0"
-    
+    "cypress": "^15.1.0",
+    "cypress-mochawesome-reporter": "^4.0.2"
   },
   "scripts": {
     "test": "npx cypress run",
     "open": "npx cypress open"
-
   }
 }
