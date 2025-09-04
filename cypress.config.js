@@ -6,9 +6,9 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     env: {
-      username: "Tester",
-      password: "test"
-    }
+      USERNAME: process.env.USERNAME,
+      PASSWORD: process.env.PASSWORD,
+    },
 
   },
 });

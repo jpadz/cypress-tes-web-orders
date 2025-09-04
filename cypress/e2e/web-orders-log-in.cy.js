@@ -9,7 +9,7 @@ describe('web-order-log-in', () => {
   })
   it.only('verify that a user can successfully log in with valid credentials', () => {
     //cy.fixture("user").then((user) => {
-    cy.login(Cypress.env('username'), Cypress.env('password'))
+    cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
     //The login error message span remains empty.
     //logInPage.getStatus().should('be.empty')
     //The user is redirected to Default.aspx.
