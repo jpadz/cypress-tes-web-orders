@@ -1,4 +1,4 @@
-{
-  "email": "Tester",
-  "password": "test"
-}
+// {
+//   "email": Cypress.env('username'),
+//   "password": cypress.env('password')
+// }

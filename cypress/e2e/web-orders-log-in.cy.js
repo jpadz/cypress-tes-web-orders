@@ -7,9 +7,9 @@ describe('web-order-log-in', () => {
     //     Navigate to the login page.
     cy.visit('http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx')
   })
-  it('verify that a user can successfully log in with valid credentials', () => {
-    cy.fixture("user").then((user) => {
-    cy.login(user.email, user.password)
+  it.only('verify that a user can successfully log in with valid credentials', () => {
+    //cy.fixture("user").then((user) => {
+    cy.login(Cypress.env('username'), Cypress.env('password'))
     //The login error message span remains empty.
     //logInPage.getStatus().should('be.empty')
     //The user is redirected to Default.aspx.
@@ -174,7 +174,7 @@ describe('web-order-log-in', () => {
     // .error classes).
     logInPage.getStatus().should('have.attr', 'class', 'error')
   })
-  it.only(' ensure critical hidden fields for the ASP.NET framework are present and correctly passed with the form submission', () => {
+  it(' ensure critical hidden fields for the ASP.NET framework are present and correctly passed with the form submission', () => {
 //     Presence of Hidden Fields
 //     Navigate to the login page.
 // View the page source.
@@ -186,5 +186,3 @@ cy.get('#__VIEWSTATEGENERATOR').should('have.attr', 'name', '__VIEWSTATEGENERATO
 // __EVENTVALIDATION
 cy.get('#__EVENTVALIDATION').should('have.attr', 'name', '__EVENTVALIDATION')
   })
-
-})
