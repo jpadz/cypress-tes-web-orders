@@ -7,7 +7,7 @@ describe('web-order-log-in', () => {
     //     Navigate to the login page.
     cy.visit('http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx?ReturnUrl=%2fsamples%2ftestcomplete12%2fweborders%2fDefault.aspx')
   })
-  it('Valid Login Credentials', () => {
+  it('verify that a user can successfully log in with valid credentials', () => {
     cy.fixture("user").then((user) => {
     cy.login(user.email, user.password)
     //The login error message span remains empty.
@@ -16,7 +16,7 @@ describe('web-order-log-in', () => {
     cy.get('#aspnetForm').should('have.attr', 'action', 'Default.aspx');
     })    
   })
-  it('Invalid Login Credentials', () => {
+  it('verify the system handles invalid credentials correctly without crashing and provides appropriate feedback.', () => {
     //Invalid Username
 // Navigate to the login page.
 
@@ -55,7 +55,7 @@ describe('web-order-log-in', () => {
 // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
   })
-  it('Empty Credential Submission', () => {
+  it('verify the system validates the presence of required fields before submission', () => {
     //     Empty Username
     //     Navigate to the login page.
 
@@ -106,7 +106,7 @@ describe('web-order-log-in', () => {
  // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
   })
-  it('Password Field Security', () => {
+  it('ensure the password field obscures the input text', () => {
     //     Password Obfuscation
     //     Navigate to the login page.
     // Click into the "Password" field.
