@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -8,8 +10,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on)
     },
     env: {
-      USERNAME: process.env.USERNAME,
-      PASSWORD: process.env.PASSWORD,
+      USERNAME: process.env.CYPRESS_USER,
+      PASSWORD: process.env.CYPRESS_PASS,
     },
 
   },

@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "cypress": "^15.1.0",
-    "cypress-mochawesome-reporter": "^4.0.2"
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "dotenv": "^17.2.2"
   },
   "scripts": {
     "test": "npx cypress run",
