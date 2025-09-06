@@ -12,21 +12,8 @@ describe('web-order-log-in', () => {
     //The user is redirected to Default.aspx.
     cy.get('#aspnetForm').should('have.attr', 'action', 'Default.aspx');   
   })
-  // it.only('uses env variables', () => {
-  // cy.log("Username is: " + Cypress.env("PASSWORD"));
-  // })
-  
-
   it('verify the system handles invalid credentials correctly without crashing and provides appropriate feedback.', () => {
     //Invalid Username
-// Navigate to the login page.
-
-// // In the "Username" field, enter: InvalidUser
-//     logInPage.getFieldUserName().type("InvalidUser")
-// // In the "Password" field, enter: test
-//     logInPage.getFieldPassword().type("test")
-// // Click the "Login" button.
-//     logInPage.clickButtonLogin()
     cy.login('InvalidUser', 'test')
    // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
@@ -34,27 +21,12 @@ describe('web-order-log-in', () => {
   it('Invalid Password', () => {
 //     Navigate to the login page.
 
-// In the "Username" field, enter: Tester
-//     logInPage.getFieldUserName().type('Tester')
-
-// // In the "Password" field, enter: wrongpassword
-//     logInPage.getFieldPassword().type('wrongpassword')
-
-// // Click the "Login" button.
-//     logInPage.clickButtonLogin()
     cy.login('Tester', 'wrongpassword')
    // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
   })
   it('Both Fields Invalid', () => {
 //     Navigate to the login page.
-
-// In the "Username" field, enter: FakeUser123
-    // logInPage.getFieldUserName().type("FakeUser123")
-    // // In the "Password" field, enter: FakePass456
-    // logInPage.getFieldPassword().type('FakePass456')
-    // // Click the "Login" button.
-    // logInPage.clickButtonLogin()
     cy.login('FakeUser123', 'FakePass456')
 // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
