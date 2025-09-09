@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       APP_BASE_URL: ${{ vars.APP_BASE_URL }}
-      USERNAME: ${{ vars.CYPRESS_USER }}
-      PASSWORD: ${{ vars.CYPRESS_PASS }}
+      CYPRESS_USER: ${{ vars.CYPRESS_USER }}
+      CYPRESS_PASS: ${{ vars.CYPRESS_PASS }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
