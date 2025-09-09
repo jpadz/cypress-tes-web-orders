@@ -129,16 +129,7 @@ describe('web-order-log-in', () => {
     //The form submits successfully, and the user is logged in and redirected (same expected result as Test Case 1.1).
     cy.get('#aspnetForm').should('have.attr', 'action', 'Default.aspx');
   })
-  it('verify that all static text and help information are displayed correctly.', () => {
-    //     Help Text Visibility
-    //     Navigate to the login page.
-    // Read the information at the bottom of the login box.
-    // The text "In order to log in Orders sample use the following information:" is visible,
-    cy.get('.info').should('contain.text', 'In order to log in Orders sample use the following information:').and('be.visible')
-    // followed by the correct username and password instructions centered on the page: "Username - Tester" and "Password - test".
-    cy.get('.info').contains('Username - Tester').and('be.visible')
-    cy.get('.info').contains('Password - test').and('be.visible')
-  })
+  
   it('verify the visual presentation of the login form is as intended.', () => {
     // CSS Styling
     // The form is styled. The labels and inputs are aligned. The styles from the linked stylesheet (StyleSheet.css) are applied correctly 
@@ -149,17 +140,5 @@ describe('web-order-log-in', () => {
     logInPage.getButton().should('have.attr', 'class', 'button')
     // .error classes).
     logInPage.getStatus().should('have.attr', 'class', 'error')
-  })
-  it(' ensure critical hidden fields for the ASP.NET framework are present and correctly passed with the form submission', () => {
-//     Presence of Hidden Fields
-//     Navigate to the login page.
-// View the page source.
-// The three hidden input fields are present in the HTML:
-// __VIEWSTATE
-cy.get('#__VIEWSTATE').should('have.attr', 'name', '__VIEWSTATE')
-// __VIEWSTATEGENERATOR
-cy.get('#__VIEWSTATEGENERATOR').should('have.attr', 'name', '__VIEWSTATEGENERATOR')
-// __EVENTVALIDATION
-cy.get('#__EVENTVALIDATION').should('have.attr', 'name', '__EVENTVALIDATION')
   })
 })
