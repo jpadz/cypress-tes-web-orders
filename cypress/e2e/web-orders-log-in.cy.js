@@ -14,14 +14,14 @@ describe('web-order-log-in', () => {
   })
   it('verify the system handles invalid credentials correctly without crashing and provides appropriate feedback.', () => {
     //Invalid Username
-    cy.login('InvalidUser', 'test')
+    cy.login('InvalidUser', Cypress.env('PASSWORD'))
    // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
   })
   it('Invalid Password', () => {
 //     Navigate to the login page.
 
-    cy.login('Tester', 'wrongpassword')
+    cy.login(Cypress.env('USERNAME'), 'wrongpassword')
    // A generic error message (e.g., "Invalid Login or Password.") should appear in the <span class="error"> element above the form.
     logInPage.getStatus().should("have.text","Invalid Login or Password.")
   })
@@ -54,7 +54,7 @@ describe('web-order-log-in', () => {
     //     Navigate to the login page.
 
     // In the "Username" field, enter: Tester
-    logInPage.getFieldUserName().type('Tester')
+    logInPage.getFieldUserName().type(Cypress.env('USERNAME'))
 
     // Leave the "Password" field blank.
     logInPage.getFieldPassword().should('be.empty')
@@ -88,7 +88,7 @@ describe('web-order-log-in', () => {
     // Click into the "Password" field.
     logInPage.getFieldPassword().click()
     // Type any characters (e.g., test).
-    logInPage.getFieldPassword().type('test')
+    logInPage.getFieldPassword().type(Cypress.env('PASSWORD'))
     //The entered characters are obscured (displayed as bullets or asterisks • or *), not as plain text.
     logInPage.getFieldPassword().should('have.attr', 'type', 'password');
   })
@@ -119,11 +119,11 @@ describe('web-order-log-in', () => {
     //     Keyboard Submission (Enter Key)
     //     Navigate to the login page.
     // In the "Username" field, enter: Tester.
-    logInPage.getFieldUserName().type('Tester')
+    logInPage.getFieldUserName().type(Cypress.env('USERNAME'))
     // Press the Tab key to move to the "Password" field.
     cy.press(Cypress.Keyboard.Keys.TAB)
     // Enter: test.
-    logInPage.getFieldPassword().type('test')
+    logInPage.getFieldPassword().type(Cypress.env('PASSWORD'))
     // Press the Enter key on the keyboard.
     logInPage.getButton().type('{enter}')
     //The form submits successfully, and the user is logged in and redirected (same expected result as Test Case 1.1).
